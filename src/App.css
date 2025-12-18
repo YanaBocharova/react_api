@@ -1,0 +1,101 @@
+/* Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* App */
+.App {
+  text-align: center;
+  margin-top: 6rem; 
+}
+
+/* Bottom Page */
+.bottom-page {
+  height: 170px;
+  background-color: #0a0909;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 1em sans-serif;
+  color: rgb(204, 12, 98);
+}
+
+/* TOP SIGNUP BAR */
+.top-signup-bar {
+  height: 6rem;
+  background: linear-gradient(135deg, #c90d5e 35%, #300aac 55%, #080112 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* left, center, right layout */
+  gap: 16px;
+  padding: 0 20px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 4px 30px rgba(168, 85, 247, 0.35);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  user-select: none;
+}
+
+/* LEFT TEXT */
+.top-signup-text {
+  flex-shrink: 0;
+  white-space: nowrap;
+  color: #ffffffcc; /* slightly transparent */
+  font-weight: 600;
+}
+
+/* CENTER MENU */
+.top-signup-menu {
+  display: flex;
+  gap: 24px;
+  flex-grow: 1;
+  justify-content: center;
+  color: #d4d4d4;
+  font-weight: 500;
+}
+
+.top-signup-menu span {
+  cursor: pointer;
+  padding: 6px 0;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.top-signup-menu span:hover {
+  color: #f4f4f4;
+  border-bottom: 2px solid #c90d5e; /* pink accent */
+}
+
+/* RIGHT BUTTON */
+.top-signup-bar button {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: white;
+  padding: 6px 18px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.top-signup-bar button img {
+  filter: invert(1);
+  width: 18px;
+  height: 18px;
+}
+
+.top-signup-bar button:hover {
+  background: white;
+  color: #7c3aed; /* purple accent */
+}
