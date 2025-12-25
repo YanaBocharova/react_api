@@ -1,0 +1,47 @@
+image: node:18-alpine
+
+stages:
+  - install
+  - build
+  - test
+  - security
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+install_dependencies:
+  stage: install
+  script:
+    - npm ci
+  artifacts:
+    paths:
+      - node_modules/
+    expire_in: 1 hour
+
+build_app:
+  stage: build
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - build/
+    expire_in: 1 week
+
+test_app:
+  stage: test
+  script:
+    - npm test
+  artifacts:
+    paths:
+      - test-results/
+    expire_in: 1 hour
+
+security_scan:
+  stage: security
+  script:
+    - npx snyk test --all-projects
+    - npx trufflehog --json .
+  only:
+    - main
