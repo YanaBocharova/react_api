@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "../styles/SignInPage.css";
 
 const SignInPage = () => {
   const [showEmailForm, setShowEmailForm] = useState(false);
-  const [mode, setMode] = useState(null); // login | create
+  const [mode, setMode] = useState(null); // "login" or "create"
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -24,11 +25,33 @@ const SignInPage = () => {
     setPassword("");
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    if (!email || !password) {
+      alert("Please enter both email and password");
+      return;
+    }
+
     if (mode === "login") {
-      console.log("Log in:", { email, password });
-    } else {
-      console.log("Create account:", { email, password });
+      // Optional: Implement login later
+      console.log("Logging in with:", { email, password });
+      alert("Login functionality not implemented yet.");
+    } else if (mode === "create") {
+      try {
+        const response = await axios.post(
+          "http://localhost:5106/api/accounts",
+          {
+            email: email,
+            password: password
+          }
+        );
+
+        console.log("Account created:", response.data);
+        alert("Account created successfully!");
+        handleBack(); // reset form
+      } catch (error) {
+        console.error("Error creating account:", error.response || error);
+        alert("Failed to create account. Check console for details.");
+      }
     }
   };
 
@@ -37,14 +60,14 @@ const SignInPage = () => {
       <main className="card">
         <h1 className="title">Dream Team Account</h1>
 
-        {/* BACK LINK (FOR LOGIN & CREATE) */}
+        {/* BACK LINK */}
         {showEmailForm && (
           <p className="back-link" onClick={handleBack}>
             ← All login options
           </p>
         )}
 
-        {/* ================= DEFAULT VIEW ================= */}
+        {/* DEFAULT VIEW */}
         {!showEmailForm && (
           <>
             <p className="subtitle">
@@ -62,10 +85,7 @@ const SignInPage = () => {
 
             <div className="or-separator">or</div>
 
-            <button
-              className="btn-email"
-              onClick={handleLoginWithEmail}
-            >
+            <button className="btn-email" onClick={handleLoginWithEmail}>
               Continue with email
             </button>
 
@@ -78,7 +98,7 @@ const SignInPage = () => {
           </>
         )}
 
-        {/* ================= EMAIL FORM ================= */}
+        {/* EMAIL FORM */}
         {showEmailForm && (
           <>
             <p className="subtitle">
