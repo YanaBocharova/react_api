@@ -1,6 +1,6 @@
 const BottomBar = () => {
   return (
-    <div className="bottom-page"/>
+    <div className="bottom-page"/>  
   );
 };
 
