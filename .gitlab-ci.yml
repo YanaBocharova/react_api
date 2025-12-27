@@ -42,7 +42,7 @@ test_app:
       - test-results/
 
 trufflehog_scan:
-  stage: security
+  stage: sast
   image: python:3.11-alpine
   before_script:
     - apk add --no-cache git
