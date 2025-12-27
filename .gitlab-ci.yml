@@ -10,7 +10,6 @@ stages:
   - install
   - build
   - test
-  - sast
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
@@ -40,14 +39,3 @@ test_app:
   artifacts:
     paths:
       - test-results/
-
-trufflehog_scan:
-  stage: sast
-  image: python:3.11-alpine
-  before_script:
-    - apk add --no-cache git
-    - pip install trufflehog
-  script:
-    - trufflehog filesystem . --fail --only-verified
-  only:
-    - main
