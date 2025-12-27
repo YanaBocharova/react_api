@@ -42,10 +42,12 @@ test_app:
       - test-results/
 
 trufflehog_scan:
-  stage: sast
+  stage: security
   image: python:3.11-alpine
-  script:
+  before_script:
+    - apk add --no-cache git
     - pip install trufflehog
+  script:
     - trufflehog filesystem . --fail --only-verified
   only:
     - main
