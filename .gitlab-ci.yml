@@ -1,10 +1,15 @@
 image: node:18-alpine
 
+include:
+  - template: Security/SAST.gitlab-ci.yml
+  - template: Jobs/Secret-Detection.gitlab-ci.yml
+  - template: Jobs/SAST-IaC.gitlab-ci.yml
+  - template: Jobs/Dependency-Scanning.latest.gitlab-ci.yml
+
 stages:
   - install
   - build
   - test
-  - security
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
@@ -18,7 +23,6 @@ install_dependencies:
   artifacts:
     paths:
       - node_modules/
-    expire_in: 1 hour
 
 build_app:
   stage: build
@@ -27,7 +31,6 @@ build_app:
   artifacts:
     paths:
       - build/
-    expire_in: 1 week
 
 test_app:
   stage: test
@@ -36,12 +39,3 @@ test_app:
   artifacts:
     paths:
       - test-results/
-    expire_in: 1 hour
-
-security_scan:
-  stage: security
-  script:
-    - npx snyk test --all-projects
-    - npx trufflehog --json .
-  only:
-    - main
