@@ -77,10 +77,10 @@ body {
 .top-signup-menu {
   display: flex;
   gap: 24px;
-  flex-grow: 1;
+  flex-grow: 3;
   justify-content: center;
   color: #d4d4d4;
-  font-weight: 500;
+  font-size: larger;
 }
 
 .top-signup-menu span {
