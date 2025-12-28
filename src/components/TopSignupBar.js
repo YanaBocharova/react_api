@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import userIcon from "../assets/user.png";
-import EducationMenu from "../pages/EducationMenuPage";
+import EducationMenu from "../pages/EducationMenu";
 
 const TopSignupBar = () => {
   const navigate = useNavigate();
@@ -40,7 +40,6 @@ const TopSignupBar = () => {
 
         <span>Solutions</span>
         <span>Support</span>
-        <span>Store</span>
         <span>Products</span>
       </nav>
 

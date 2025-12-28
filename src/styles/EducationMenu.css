@@ -1,3 +1,21 @@
+.mega-menu p,
+.menu-link {
+  margin: 6px 0;
+  color: #333;
+  font-size: 14px;
+}
+
+.menu-link {
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+.menu-link:hover {
+  text-decoration: underline; /* optional */
+}
+
+
 .top-signup-menu {
   display: flex;
   gap: 20px;
