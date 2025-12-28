@@ -10,6 +10,29 @@ body {
   margin-top: 6rem; 
 }
 
+.has-caret {
+  position: relative;
+}
+
+.has-caret::after {
+  content: "";
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border-left: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
+  opacity: 0;
+  z-index: 1001;
+}
+
+.has-caret.active::after {
+  opacity: 1;
+}
+
 /* Bottom Page */
 .bottom-page {
   height: 170px;
@@ -24,7 +47,7 @@ body {
 /* TOP SIGNUP BAR */
 .top-signup-bar {
   height: 6rem;
-  background: linear-gradient(135deg, #c90d5e 35%, #300aac 55%, #080112 100%);
+  background: linear-gradient(135deg, #5d35e0 55%, #080112 100%);
   display: flex;
   align-items: center;
   justify-content: space-between; /* left, center, right layout */
@@ -69,7 +92,6 @@ body {
 
 .top-signup-menu span:hover {
   color: #f4f4f4;
-  border-bottom: 2px solid #c90d5e; /* pink accent */
 }
 
 /* RIGHT BUTTON */
