@@ -8,7 +8,7 @@ function Footer() {
           <div className="footer-text">
             <h1>Top coding tips, documentations, design patterns free resources,
               system design landscape</h1>
-            <h3>Now with Dream Team joining the lineup</h3>
+            <h3>Now with Dream Team joining the lineup.</h3>
 
             <p>
               Log in, write an article, share your experience, and get feedback from other community members.
