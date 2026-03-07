@@ -13,6 +13,60 @@ body {
 .has-caret {
   position: relative;
 }
+.footer-container {
+  background: linear-gradient(135deg,#120a2a,#3c2a7a);
+  padding: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-content {
+  width: 90%;
+  max-width: 1200px;
+  border: 2px solid #7b5cff;
+  border-radius: 20px;
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.footer-text h1{
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.footer-text h3{
+  color:#9b7bff;
+  margin-bottom: 15px;
+}
+
+.footer-text p{
+  color:#cfcfcf;
+  margin-bottom: 25px;
+}
+
+.try-btn{
+  background:white;
+  border:none;
+  padding:12px 25px;
+  border-radius:25px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.footer-icons{
+  display:flex;
+  gap:20px;
+}
+
+.circle{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.1);
+}
 
 .has-caret::after {
   content: "";

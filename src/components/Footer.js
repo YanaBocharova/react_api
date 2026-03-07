@@ -1,40 +1,30 @@
-const Footer = () => {
+import "../App.css";
+
+function Footer() {
   return (
-    <>
-      <section className="author-header">
-        <h1>Dream Team</h1>
-      </section>
+      <div className="footer-container">
+        <div className="footer-content">
 
-      <footer className="footer">
-        <div>
-          <h4>Company</h4>
-          <ul>
-            <li>About</li>
-            <li>Careers</li>
-            <li>Contact</li>
-          </ul>
-        </div>
+          <div className="footer-text">
+            <h1>Top coding tips, documentations, design patterns free resources,
+              system design landscape</h1>
+            <h3>Now with Dream Team joining the lineup</h3>
 
-        <div>
-          <h4>Services</h4>
-          <ul>
-            <li>Software Development</li>
-            <li>Cloud</li>
-            <li>AI Solutions</li>
-          </ul>
-        </div>
+            <p>
+              Log in, write an article, share your experience, and get feedback from other community members.
+            </p>
 
-        <div>
-          <h4>Insights</h4>
-          <ul>
-            <li>Blog</li>
-            <li>Case Studies</li>
-            <li>Whitepapers</li>
-          </ul>
+            <button className="try-btn">Try now</button>
+          </div>
+
+          <div className="footer-icons">
+            <div className="circle"></div>
+            <div className="circle"></div>
+            <div className="circle"></div>
+          </div>
+
         </div>
-      </footer>
-    </>
+      </div>
   );
-};
-
+}
 export default Footer;

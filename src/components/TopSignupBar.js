@@ -30,17 +30,18 @@ const TopSignupBar = () => {
 
         {/* EDUCATION */}
         <span
-          ref={educationRef}
-          className={`menu-item has-caret ${showEducation ? "active" : ""}`}
-          onClick={() => setShowEducation((prev) => !prev)}
+            ref={educationRef}
+            className={`menu-item has-caret ${showEducation ? "active" : ""}`}
+            onMouseEnter={() => setShowEducation(true)}
+            onMouseLeave={() => setShowEducation(false)}
         >
-          Education
+        Education
           {showEducation && <EducationMenu />}
         </span>
 
         <span>Solutions</span>
         <span>Support</span>
-        <span>Products</span>
+        <span>Community</span>
       </nav>
 
       <button
