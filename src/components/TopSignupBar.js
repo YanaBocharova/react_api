@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import userIcon from "../assets/user.png";
 import EducationMenu from "../pages/EducationMenu";
+import { Link } from "react-router-dom";
 
 const TopSignupBar = () => {
   const navigate = useNavigate();
@@ -25,8 +26,9 @@ const TopSignupBar = () => {
 
       <nav className="top-signup-menu">
         <span>AI</span>
+
+        <span><Link to="/" className="nav-link-reset">Home</Link></span>
         <span>Developer Tools</span>
-        <span>Team Tools</span>
 
         {/* EDUCATION */}
         <span
@@ -53,5 +55,7 @@ const TopSignupBar = () => {
     </div>
   );
 };
+
+
 
 export default TopSignupBar;
