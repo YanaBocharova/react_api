@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import BottomBar from "./components/BottomPage";
 import SignInPage from "./pages/SignInPage";
 import JavaScriptCourses from "./pages/JavaScriptCourses";
+import CommandLine from "./pages/CommandLine";
 
 import { Routes, Route, useLocation } from "react-router-dom";
 
@@ -32,8 +33,8 @@ function App() {
 
           {/* Sign in */}
           <Route path="/signin" element={<SignInPage />} />
-
           <Route path="/javascript" element={<JavaScriptCourses />} />
+          <Route path="/commandLine" element={<CommandLine/>} />
         </Routes>
       </div>
     </>

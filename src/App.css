@@ -37,6 +37,13 @@ body {
   margin-bottom: 20px;
 }
 
+.nav-link-reset {
+  color: inherit;
+  text-decoration: none;
+  font: inherit;
+  cursor: pointer;
+}
+
 .footer-text h3{
   color:#9b7bff;
   margin-bottom: 15px;
