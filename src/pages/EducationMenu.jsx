@@ -9,7 +9,7 @@ const EducationMenu = () => {
         <h4>DevOps</h4>
         <Link to="/commandLine" className="menu-link">Introduction to Command line</Link>
         <Link to="/gitguide" className="menu-link">Introduction to Git</Link>
-        <p>Docker</p>
+        <Link to="/docker" className="menu-link">Introduction to Docker</Link>
         <p>DevOps Engineer CI/CD pipelines</p>
       </div>
 
