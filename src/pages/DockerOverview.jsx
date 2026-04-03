@@ -18,16 +18,23 @@ const DockerOverview = () => {
         </p>
       </div>
 
-      {/* Use Cases */}
-      <div style={styles.container}>
-        <h1 style={styles.title}>What Can I Use Docker For?</h1>
-        <ul style={styles.list}>
-          <li>Fast, consistent delivery of applications</li>
-          <li>Responsive deployment and scaling</li>
-          <li>Running more workloads on less infrastructure</li>
-        </ul>
-      </div>
+    
+    <div style={styles.container}>
+      <h1 style={styles.title}>What Can I Use Docker For?</h1>
 
+      <p style={styles.paragraph}>
+        Docker streamlines the development lifecycle by allowing developers to work in standardized environments using local containers which provide your applications and services. Containers are great for continuous integration and continuous delivery (CI/CD) workflows.
+      </p>
+
+      <p style={styles.paragraph}><strong>Consider the following example scenario:</strong></p>
+      <ul style={styles.list}>
+        <li>Your developers write code locally and share their work with their colleagues using Docker containers.</li>
+        <li>They use Docker to push their applications into a test environment and run automated and manual tests.</li>
+        <li>When developers find bugs, they can fix them in the development environment and redeploy them to the test environment for testing and validation.</li>
+        <li>When testing is complete, getting the fix to the customer is as simple as pushing the updated image to the production environment.</li>
+      </ul>
+</div>
+    
       {/* Architecture */}
       <div style={styles.container}>
         <h1 style={styles.title}>Docker Architecture</h1>
