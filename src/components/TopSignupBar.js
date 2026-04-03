@@ -16,6 +16,7 @@ const TopSignupBar = () => {
         setShowEducation(false);
       }
     };
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
@@ -27,17 +28,20 @@ const TopSignupBar = () => {
       <nav className="top-signup-menu">
         <span>AI</span>
 
-        <span><Link to="/" className="nav-link-reset">Home</Link></span>
+        <span>
+          <Link to="/" className="nav-link-reset">Home</Link>
+        </span>
+
         <span>Developer Tools</span>
 
         {/* EDUCATION */}
         <span
-            ref={educationRef}
-            className={`menu-item has-caret ${showEducation ? "active" : ""}`}
-            onMouseEnter={() => setShowEducation(true)}
-            onMouseLeave={() => setShowEducation(false)}
+          ref={educationRef}
+          className={`menu-item has-caret ${showEducation ? "active" : ""}`}
+          onClick={() => setShowEducation(prev => !prev)}
         >
-        Education
+          Education
+
           {showEducation && <EducationMenu />}
         </span>
 
@@ -55,7 +59,5 @@ const TopSignupBar = () => {
     </div>
   );
 };
-
-
 
 export default TopSignupBar;
