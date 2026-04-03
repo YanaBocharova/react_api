@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import userIcon from "../assets/user.png";
 import EducationMenu from "../pages/EducationMenu";
-import Support from "../pages/Support";
 import { Link } from "react-router-dom";
 
 const TopSignupBar = () => {
