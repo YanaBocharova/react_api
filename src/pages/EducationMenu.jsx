@@ -10,7 +10,7 @@ const EducationMenu = () => {
         <Link to="/commandLine" className="menu-link">Introduction to Command line</Link>
         <Link to="/gitguide" className="menu-link">Introduction to Git</Link>
         <Link to="/docker" className="menu-link">Introduction to Docker</Link>
-        <p>DevOps Engineer CI/CD pipelines</p>
+        <Link to="/devops" className="menu-link">DevOps Engineer</Link>
       </div>
 
       <div className="mega-column">
