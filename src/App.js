@@ -6,6 +6,8 @@ import SignInPage from "./pages/SignInPage";
 import JavaScriptCourses from "./pages/JavaScriptCourses";
 import CommandLine from "./pages/CommandLine";
 import GitGuide from "./pages/GitGuide";
+import DockerOverview from "./pages/DockerOverview";
+import DevOpsOverview from "./pages/DevOpsEngineer";
 
 import { Routes, Route, useLocation } from "react-router-dom";
 
@@ -37,6 +39,8 @@ function App() {
           <Route path="/javascript" element={<JavaScriptCourses />} />
           <Route path="/commandLine" element={<CommandLine/>} />
           <Route path="/gitguide" element={<GitGuide/>} />
+          <Route path="/docker" element={<DockerOverview/>} />
+          <Route path="/devops" element={<DevOpsOverview/>} />
         </Routes>
       </div>
     </>
