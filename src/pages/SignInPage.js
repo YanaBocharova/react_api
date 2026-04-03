@@ -74,14 +74,8 @@ const SignInPage = () => {
               Log in to manage all your products and services
             </p>
 
-            <button className="btn btn-google">🔴 Continue with Google</button>
-            <button className="btn btn-github">🐙 Continue with GitHub</button>
-
-            <div className="social-row">
-              <button className="btn btn-social">🦊</button>
-              <button className="btn btn-social">🟩</button>
-              <button className="btn btn-social">🔵</button>
-            </div>
+            <button className="btn btn-google"> Continue with Google</button>
+            <button className="btn btn-github"> Continue with GitHub</button>
 
             <div className="or-separator">or</div>
 

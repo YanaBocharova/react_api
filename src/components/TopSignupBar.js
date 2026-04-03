@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import userIcon from "../assets/user.png";
 import EducationMenu from "../pages/EducationMenu";
+import Support from "../pages/Support";
 import { Link } from "react-router-dom";
 
 const TopSignupBar = () => {
@@ -46,7 +47,11 @@ const TopSignupBar = () => {
         </span>
 
         <span>Solutions</span>
-        <span>Support</span>
+
+        <span>
+          <Link to="/support" className="nav-link-reset">Support</Link>
+        </span>
+
         <span>Community</span>
       </nav>
 
