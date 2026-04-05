@@ -50,7 +50,7 @@ const TopSignupBar = () => {
 
         <span>AI</span>
 
-        <span>
+          <span onClick={() => setShowMobileMenu(false)}>
           <Link to="/" className="nav-link-reset">Home</Link>
         </span>
 
@@ -67,7 +67,7 @@ const TopSignupBar = () => {
 
         <span>Solutions</span>
 
-        <span>
+          <span onClick={() => setShowMobileMenu(false)}>
           <Link to="/support" className="nav-link-reset">Support</Link>
         </span>
 
