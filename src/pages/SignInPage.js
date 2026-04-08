@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../styles/SignInPage.css";
 import { useNavigate } from "react-router-dom";
+import { GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode"; // fixed import
 
 const SignInPage = () => {
   const [showEmailForm, setShowEmailForm] = useState(false);
@@ -9,18 +11,21 @@ const SignInPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
+
+  // Show login form
   const handleLoginWithEmail = () => {
     setMode("login");
     setShowEmailForm(true);
   };
 
-  const navigate = useNavigate();
-
+  // Show create account form
   const handleCreateAccount = () => {
     setMode("create");
     setShowEmailForm(true);
   };
 
+  // Go back to default view
   const handleBack = () => {
     setShowEmailForm(false);
     setMode(null);
@@ -28,6 +33,7 @@ const SignInPage = () => {
     setPassword("");
   };
 
+  // Submit email/password login or account creation
   const handleSubmit = async () => {
     if (!email || !password) {
       alert("Please enter both email and password");
@@ -35,51 +41,67 @@ const SignInPage = () => {
     }
 
     if (mode === "login") {
-       try 
-       {
-             const resp = await axios.post(
-               "http://localhost:5106/api/v1/Accounts/signin",
-               {
-                 email: email,
-                 password: password
-               }
-             );
-              if (resp.status === 200) 
-                  navigate("/usersignin");
-               else {
-                alert("Login failed. Check console for details.");
-                console.log("Login failed:", resp);
-              }
+      try {
+        const resp = await axios.post(
+          "http://localhost:5106/api/v1/Accounts/signin",
+          { email, password }
+        );
 
-        } catch (error) {
-          console.log(error.response || error);
-        };
-
+        if (resp.status === 200) {
+          navigate("/usersignin");
+        } else {
+          alert("Login failed. Check console for details.");
+          console.log("Login failed:", resp);
+        }
+      } catch (error) {
+        console.log(error.response || error);
+      }
     } else if (mode === "create") {
-      try 
-      {
-          const response = await axios.post(
-            "http://localhost:5106/api/v1/Accounts",
-            {
-              email: email,
-              password: password
-            }
-          );
+      try {
+        const response = await axios.post(
+          "http://localhost:5106/api/v1/Accounts",
+          { email, password }
+        );
 
-          if (response.status === 200) {
-            console.log("Account created:", response.data);
-            alert("Account created successfully!");
-            navigate("/usersignin");
-          } else {
-            alert("Account creation failed. Check console for details.");
-            console.log("Account creation failed:", response);
-          }
-        
+        if (response.status === 200) {
+          console.log("Account created:", response.data);
+          alert("Account created successfully!");
+          navigate("/usersignin");
+        } else {
+          alert("Account creation failed. Check console for details.");
+          console.log("Account creation failed:", response);
+        }
       } catch (error) {
         console.error("Error creating account:", error.response || error);
         alert("Failed to create account. Check console for details.");
       }
     }
+  };
+
+  // Google login success
+  const handleGoogleSuccess = (credentialResponse) => {
+    const decoded = jwtDecode(credentialResponse.credential); // fixed usage
+    console.log("Google user:", decoded);
+
+    // Send token to backend for login / registration
+    axios
+      .post("http://localhost:5106/api/v1/Accounts/google", {
+        token: credentialResponse.credential,
+      })
+      .then((res) => {
+        console.log("Google login success:", res.data);
+        navigate("/usersignin");
+      })
+      .catch((err) => {
+        console.error("Google login error:", err.response || err);
+        alert("Google login failed. Check console for details.");
+      });
+  };
+
+  // Google login failure
+  const handleGoogleError = () => {
+    console.log("Google login failed");
+    alert("Google login failed. Try again.");
   };
 
   return (
@@ -101,7 +123,13 @@ const SignInPage = () => {
               Log in to manage all your products and services
             </p>
 
-            <button className="btn btn-google"> Continue with Google</button>
+            {/* Google Login */}
+            <GoogleLogin
+              onSuccess={handleGoogleSuccess}
+              onError={handleGoogleError}
+            />
+
+            {/* GitHub login placeholder */}
             <button className="btn btn-github"> Continue with GitHub</button>
 
             <div className="or-separator">or</div>
