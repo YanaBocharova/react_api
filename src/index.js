@@ -9,11 +9,12 @@ const clientId = "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"; // replace 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <GoogleOAuthProvider clientId={clientId}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </GoogleOAuthProvider>
+
+<GoogleOAuthProvider clientId="948341190298-o97a275grjt2dl4f9s68otmjdrhcimsr.apps.googleusercontent.com">
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+</GoogleOAuthProvider>
 );
 
 reportWebVitals();
