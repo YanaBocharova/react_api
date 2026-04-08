@@ -1,0 +1,7 @@
+// Dashboard.jsx
+
+export default function Dashboard() {
+  return (
+    <h1>Welocme to your Dashboard  </h1>
+  );
+}
