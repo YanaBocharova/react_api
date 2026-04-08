@@ -9,6 +9,7 @@ import GitGuide from "./pages/GitGuide";
 import DockerOverview from "./pages/DockerOverview";
 import DevOpsOverview from "./pages/DevOpsEngineer";
 import Support from "./pages/Support";
+import Dashboard from "./pages/Dashboard/UserSignin";
 
 import { Routes, Route, useLocation } from "react-router-dom";
 
@@ -43,6 +44,7 @@ function App() {
           <Route path="/gitguide" element={<GitGuide/>} />
           <Route path="/docker" element={<DockerOverview/>} />
           <Route path="/devops" element={<DevOpsOverview/>} />
+          <Route path="/usersignin" element={<Dashboard/>} />
         </Routes>
       </div>
     </>

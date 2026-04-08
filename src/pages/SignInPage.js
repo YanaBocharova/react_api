@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../styles/SignInPage.css";
+import { useNavigate } from "react-router-dom";
 
 const SignInPage = () => {
   const [showEmailForm, setShowEmailForm] = useState(false);
@@ -12,6 +13,8 @@ const SignInPage = () => {
     setMode("login");
     setShowEmailForm(true);
   };
+
+  const navigate = useNavigate();
 
   const handleCreateAccount = () => {
     setMode("create");
@@ -32,22 +35,46 @@ const SignInPage = () => {
     }
 
     if (mode === "login") {
-      // Optional: Implement login later
-      console.log("Logging in with:", { email, password });
-      alert("Login functionality not implemented yet.");
-    } else if (mode === "create") {
-      try {
-        const response = await axios.post(
-          "http://localhost:5106/api/accounts",
-          {
-            email: email,
-            password: password
-          }
-        );
+       try 
+       {
+             const resp = await axios.post(
+               "http://localhost:5106/api/v1/Accounts/signin",
+               {
+                 email: email,
+                 password: password
+               }
+             );
+              if (resp.status === 200) 
+                  navigate("/usersignin");
+               else {
+                alert("Login failed. Check console for details.");
+                console.log("Login failed:", resp);
+              }
 
-        console.log("Account created:", response.data);
-        alert("Account created successfully!");
-        handleBack(); // reset form
+        } catch (error) {
+          console.log(error.response || error);
+        };
+
+    } else if (mode === "create") {
+      try 
+      {
+          const response = await axios.post(
+            "http://localhost:5106/api/v1/Accounts",
+            {
+              email: email,
+              password: password
+            }
+          );
+
+          if (response.status === 200) {
+            console.log("Account created:", response.data);
+            alert("Account created successfully!");
+            navigate("/usersignin");
+          } else {
+            alert("Account creation failed. Check console for details.");
+            console.log("Account creation failed:", response);
+          }
+        
       } catch (error) {
         console.error("Error creating account:", error.response || error);
         alert("Failed to create account. Check console for details.");
