@@ -75,8 +75,9 @@ const TopSignupBar = () => {
       </nav>
 
       <button className="top-signup-login" onClick={() => navigate("/signin")} >
-        <img src={userIcon} alt="User Icon" height="20" width="20" />
+        <img src={userIcon} alt="User Icon" height="15" width="15" />
       </button>
+
     </div>
   );
 };
