@@ -14,10 +14,19 @@ body {
   position: relative;
 }
 
-.top-signup-login{
+.top-signup-login {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;  
+  margin: 10%; /* makes the button circular */
   display: flex;
-  margin: 10%;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  cursor: pointer;
 }
+ 
 /* ================= FOOTER ================= */
 
 .footer-container {
@@ -80,8 +89,9 @@ body {
 .nav-link-reset {
   color: inherit;
   text-decoration: none;
-  font: inherit;
+  font-weight: 500;
   cursor: pointer;
+  transition: color 0.25s ease;
 }
 
 .has-caret::after {
