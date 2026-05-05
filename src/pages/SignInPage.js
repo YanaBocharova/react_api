@@ -127,6 +127,7 @@ const SignInPage = () => {
             <GoogleLogin
               onSuccess={handleGoogleSuccess}
               onError={handleGoogleError}
+              width="350"
             />
 
             {/* GitHub login placeholder */}
