@@ -4,30 +4,29 @@ import userIcon from "../assets/user.png";
 import EducationMenu from "../pages/EducationMenu";
 
 const TopSignupBar = () => {
+
   const navigate = useNavigate();
+  const educationRef = useRef(null);
 
   const [showEducation, setShowEducation] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
-  const educationRef = useRef(null);
-
   // Close education dropdown when clicking outside
-  useEffect(() => {
+  useEffect(() => 
+  {
     const handleClickOutside = (e) => {
-      if (
-        educationRef.current &&
-        !educationRef.current.contains(e.target)
-      ) {
+      if ( educationRef.current && !educationRef.current.contains(e.target)) 
+      {
         setShowEducation(false);
       }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    return () =>
-      document.removeEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const closeAllMenus = () => {
+  const closeAllMenus = () =>
+  {
     setShowEducation(false);
     setShowMobileMenu(false);
   };
@@ -39,8 +38,9 @@ const TopSignupBar = () => {
       <button
         className="burger-btn"
         onClick={() => setShowMobileMenu((prev) => !prev)}
-        aria-label="Toggle menu"
-      >
+        >
+      
+        <div className={`burger-line ${showMobileMenu ? "open" : ""}`} />
         <div className={`burger-line ${showMobileMenu ? "open" : ""}`} />
         <div className={`burger-line ${showMobileMenu ? "open" : ""}`} />
         <div className={`burger-line ${showMobileMenu ? "open" : ""}`} />
@@ -56,9 +56,7 @@ const TopSignupBar = () => {
         <span>AI</span>
 
         <span onClick={closeAllMenus}>
-          <Link to="/" className="nav-link-reset">
-            Home
-          </Link>
+          <Link to="/" className="nav-link-reset">Home</Link>
         </span>
 
         <span>Developer Tools</span>
