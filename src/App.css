@@ -138,7 +138,7 @@ body {
   font-weight: 600;
 }
 
-/* MENU (DESKTOP DEFAULT) */
+/* MENU */
 .top-signup-menu {
   display: flex;
   gap: 24px;
@@ -158,7 +158,6 @@ body {
   color: #f4f4f4;
 }
 
-/* LOGIN BUTTON */
 .top-signup-bar button {
   background: rgba(255, 255, 255, 0.18);
   border: 1px solid rgba(255, 255, 255, 0.35);
@@ -220,31 +219,35 @@ body {
 .burger-line.open:nth-child(4) {
   opacity: 0;
 }
-/* ================= MOBILE ================= */
 
 @media (max-width: 600px) {
   .burger-btn {
     display: flex;
   }
 
-  /* 🔥 FIXED MENU */
+  .top-signup-login {
+    right: 50%;
+    position: relative;  /* 🔥 important for stacking */
+  }
+
+  /* MENU */
   .top-signup-menu {
     position: fixed;
-    top: 235px; /* height of top bar + some gap */
+    top: 325px;
     left: -16%;
     width: 100%;
     min-width: 100vw;
+    width: auto !important;
     height: 100vh;
     background: linear-gradient(135deg, #5d35e0, #080112);
     flex-direction: column;
     padding-top: 6rem;
     z-index: 1000;
 
-    transform: translateX(-140%); /* hidden */
+    transform: translateX(-140%);
     transition: transform 0.3s ease;
   }
 
-  /* ✅ SHOW ONLY WHEN CLICKED */
   .top-signup-menu.mobile-open {
     transform: translateX(0);
   }
@@ -256,13 +259,20 @@ body {
   }
 }
 
-/* ================= DESKTOP OVERRIDE ================= */
+/* ================= DESKTOP ================= */
 
 @media (min-width: 601px) {
   .burger-btn {
     display: none;
   }
 
+  .top-signup-login   {
+  border: 1px solid transparent;
+  background:
+  linear-gradient(121deg, #140e27, #8b74e2, purple) padding-box,
+  linear-gradient(135deg, #ff0099, #8b74e2, #621c47, #4a00e0) border-box;
+  }
+  
   .top-signup-menu {
     display: flex;
     position: static;
@@ -271,6 +281,7 @@ body {
     width: auto;
     background: transparent;
     padding: 0;
+    
   }
 }
 
