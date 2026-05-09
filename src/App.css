@@ -17,14 +17,19 @@ body {
 .top-signup-login {
   width: 30px;
   height: 30px;
-  border-radius: 50%;  
-  margin: 10%; /* makes the button circular */
+  border-radius: 50%;
+  margin: 10%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
+  border: 3px solid transparent;
+  background:
+    linear-gradient(121deg, #140e27, #8b74e2, purple) padding-box,
+    linear-gradient(135deg, #ff0099, #8b74e2, #c7097e, #4a00e0) border-box;
 }
- 
+
 /* ================= FOOTER ================= */
 
 .footer-container {
@@ -163,16 +168,29 @@ body {
   cursor: pointer;
 }
 
+.no-style-area-top {
+  height: 6rem;
+  background: linear-gradient(135deg, #5d35e0 55%, #080112 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  color: inherit;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
 .top-signup-bar button img {
   filter: invert(1);
 }
-
 /* ================= BURGER ================= */
 
 .burger-btn {
   display: none;
   flex-direction: column;
-  width: 25px;
+  width: 30px;
   height: 25px;
   justify-content: space-between;
   background: none;
@@ -181,8 +199,8 @@ body {
 }
 
 .burger-line {
-  width: 25px;
-  height: 3px;
+  width: 35px;
+  height: 1px;
   background: white;
   transition: 0.3s;
 }
@@ -199,6 +217,9 @@ body {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
+.burger-line.open:nth-child(4) {
+  opacity: 0;
+}
 /* ================= MOBILE ================= */
 
 @media (max-width: 600px) {
@@ -217,7 +238,6 @@ body {
     padding-top: 6rem;
     z-index: 1000;
 
-    
     transform: translateX(-140%); /* hidden */
     transition: transform 0.3s ease;
   }
