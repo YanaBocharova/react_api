@@ -32,7 +32,7 @@ const TopSignupBar = () => {
   };
 
   return (
-    <div className="top-signup-bar">
+    <div className="no-style-area-top">
 
       {/* Burger button (mobile only via CSS) */}
       <button
