@@ -230,9 +230,11 @@ body {
   /* 🔥 FIXED MENU */
   .top-signup-menu {
     position: fixed;
-    top: 210px; /* height of top bar + some gap */
-    left: 0;
+    top: 235px; /* height of top bar + some gap */
+    left: -16%;
     width: 100%;
+    min-width: 100vw;
+    height: 100vh;
     background: linear-gradient(135deg, #5d35e0, #080112);
     flex-direction: column;
     padding-top: 6rem;
