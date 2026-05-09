@@ -24,10 +24,10 @@ body {
   justify-content: center;
   cursor: pointer;
 
-  border: 3px solid transparent;
+  border: 1px solid transparent;
   background:
     linear-gradient(121deg, #140e27, #8b74e2, purple) padding-box,
-    linear-gradient(135deg, #ff0099, #8b74e2, #c7097e, #4a00e0) border-box;
+    linear-gradient(135deg, #ff0099, #8b74e2, #621c47, #4a00e0) border-box;
 }
 
 /* ================= FOOTER ================= */
@@ -40,7 +40,7 @@ body {
 }
 
 .footer-content {
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
   border: 2px solid #7b5cff;
   border-radius: 20px;
@@ -48,7 +48,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .footer-text h1 {
@@ -278,6 +278,7 @@ body {
   .footer-content {
     flex-direction: column;
     padding: 30px;
+    min-height: auto;
   }
 
   .footer-text h1 {
