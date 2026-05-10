@@ -59,7 +59,7 @@ body {
   justify-content: space-between;
   align-items: center;
   color: rgb(255, 255, 255);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.02);
+  box-shadow: 0 8px 30px rgba(72, 51, 120, 0.45), inset 0 1px 0 rgba(255,255,255,0.02);
 }
 
 .footer-text h1 {
@@ -221,7 +221,7 @@ body {
 
 .no-style-area-top {
   height: 6rem;
-  background: linear-gradient(135deg, #5d35e0 55%, #080112 100%);
+  background: radial-gradient(circle at center, #271a52 55%, #080112 100%);
   display: flex;
   align-items: center;
   justify-content: space-between;
