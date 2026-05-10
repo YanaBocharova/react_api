@@ -226,7 +226,7 @@ body {
   }
 
   .top-signup-login {
-    right: 50%;
+    right: 43%;
     position: relative;  /* 🔥 important for stacking */
   }
 
@@ -236,7 +236,7 @@ body {
     top: 325px;
     left: -16%;
     width: 100%;
-    min-width: 100vw;
+    min-width: 105vw;
     width: auto !important;
     height: 100vh;
     background: linear-gradient(135deg, #5d35e0, #080112);
