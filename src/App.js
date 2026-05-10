@@ -1,4 +1,5 @@
 import "./App.css";
+import useScrollGradient from './hooks/useScrollGradient';
 import TopSignupBar from "./components/TopSignupBar";
 import Footer from "./components/Footer";
 import BottomBar from "./components/BottomPage";
@@ -14,6 +15,7 @@ import Dashboard from "./pages/Dashboard/UserSignin";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 function App() {
+  useScrollGradient();
   const location = useLocation();
   const isSignIn = location.pathname === "/signin";
 

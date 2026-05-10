@@ -1,9 +1,11 @@
 /* Styles for BottomPage component */
 .bottom-page {
-  background: #000; /* page background */
+  /* blend from main bottom color into the separator top stop for a smooth transition */
+  background: linear-gradient(180deg, var(--bottom-bg, #000) 0%, var(--sep-stop-1, #120a2a) 100%);
   color: #fff;
   padding: 80px 20px 120px;
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  transition: background 600ms ease;
 }
 
 .bp-inner {
@@ -87,4 +89,27 @@
   .bp-title { font-size: 44px; }
   .bp-panel-title { font-size: 20px; }
   .bp-cards { gap: 12px; }
+}
+
+/* Separator to create a smooth blend into footer */
+.bp-separator {
+  margin-top: -28px; /* pull up to overlap footer and hide seam */
+  height: 140px;
+  overflow: visible;
+  position: relative;
+  z-index: 3; /* sit above footer so gradient visually blends */
+}
+
+.bp-separator svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.bp-separator path {
+  transition: opacity 400ms ease;
+}
+
+.bp-separator svg stop {
+  transition: stop-color 600ms ease;
 }
