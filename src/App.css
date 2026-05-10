@@ -1,4 +1,11 @@
 /* Reset */
+:root {
+  --bottom-bg: #000;
+  --footer-bg: linear-gradient(135deg, #120a2a, #3c2a7a);
+  --sep-stop-1: #120a2a;
+  --sep-stop-2: #3c2a7a;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -33,22 +40,26 @@ body {
 /* ================= FOOTER ================= */
 
 .footer-container {
-  background: linear-gradient(135deg, #120a2a, #3c2a7a);
+  background: var(--footer-bg);
   padding: 60px;
   display: flex;
   justify-content: center;
+  transition: background 600ms ease;
+  position: relative;
+  z-index: 1; /* sit underneath separator */
 }
 
 .footer-content {
   width: 100%;
   max-width: 1200px;
-  border: 2px solid #7b5cff;
+  border: none; /* remove visible border so separator gradient blends smoothly */
   border-radius: 20px;
   padding: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: rgb(255, 255, 255);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.02);
 }
 
 .footer-text h1 {
@@ -84,7 +95,7 @@ body {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.034);
 }
 
 /* ================= NAV ================= */
@@ -156,6 +167,47 @@ body {
 
 .top-signup-menu span:hover {
   color: #f4f4f4;
+}
+
+/* Updated typography + colors to match bottom area */
+.top-signup-text {
+  color: var(--sep-stop-2, #9b7bff);
+  font-weight: 700;
+  margin-right: 12px;
+  font-size: 18px;
+}
+
+.top-signup-menu {
+  gap: 28px;
+  color: rgba(255,255,255,0.95);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.top-signup-menu span {
+  padding: 8px 6px;
+  color: inherit;
+  transition: color 220ms ease, transform 150ms ease;
+  border-radius: 6px;
+}
+
+.top-signup-menu span:hover{
+  color: #ffffff;
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.02);
+}
+
+/* Make sure Link elements inherit the menu styles */
+.top-signup-menu .nav-link-reset {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 6px;
+}
+
+.top-signup-menu .nav-link-reset:hover {
+  color: #ffffff;
 }
 
 .top-signup-bar button {
@@ -256,6 +308,11 @@ body {
     padding: 14px 20px;
     border-bottom: 1px solid rgba(255,255,255,0.1);
     color: white;
+  }
+
+  .top-signup-menu span {
+    font-size: 16px;
+    font-weight: 600;
   }
 }
 
