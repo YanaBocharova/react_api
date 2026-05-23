@@ -3,7 +3,9 @@ import axios from "axios";
 import "../styles/SignInPage.css";
 import { useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
-import { jwtDecode } from "jwt-decode"; // fixed import
+import { jwtDecode } from "jwt-decode";
+
+const API_BASE = "https://rest-api-nooj.onrender.com";
 
 const SignInPage = () => {
   const [showEmailForm, setShowEmailForm] = useState(false);
@@ -43,11 +45,11 @@ const SignInPage = () => {
     if (mode === "login") {
       try {
         const resp = await axios.post(
-          "http://localhost:5106/api/v1/Accounts/signin",
+          `${API_BASE}/api/v1/Accounts/signin`,
           { email, password }
         );
 
-        if (resp.status === 200) {
+        if (resp.status === 200 || resp.status === 201) {
           navigate("/usersignin");
         } else {
           alert("Login failed. Check console for details.");
@@ -55,15 +57,16 @@ const SignInPage = () => {
         }
       } catch (error) {
         console.log(error.response || error);
+        alert("Login failed. Check console for details.");
       }
     } else if (mode === "create") {
       try {
         const response = await axios.post(
-          "http://localhost:5106/api/v1/Accounts",
+          `${API_BASE}/api/v1/Accounts`,
           { email, password }
         );
 
-        if (response.status === 200) {
+        if (response.status === 200 || response.status === 201) {
           console.log("Account created:", response.data);
           alert("Account created successfully!");
           navigate("/usersignin");
@@ -80,12 +83,12 @@ const SignInPage = () => {
 
   // Google login success
   const handleGoogleSuccess = (credentialResponse) => {
-    const decoded = jwtDecode(credentialResponse.credential); // fixed usage
+    const decoded = jwtDecode(credentialResponse.credential);
     console.log("Google user:", decoded);
 
     // Send token to backend for login / registration
     axios
-      .post("http://localhost:5106/api/v1/Accounts/google", {
+      .post(`${API_BASE}/api/v1/Accounts/google`, {
         token: credentialResponse.credential,
       })
       .then((res) => {
@@ -131,7 +134,9 @@ const SignInPage = () => {
             />
 
             {/* GitHub login placeholder */}
-            <button className="btn btn-github"> Continue with GitHub</button>
+            <button className="btn btn-github">
+              Continue with GitHub
+            </button>
 
             <div className="or-separator">or</div>
 
