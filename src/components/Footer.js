@@ -6,7 +6,7 @@ function Footer() {
         <div className="footer-content">
 
           <div className="footer-text">
-            <h1>Top coding tips, documentations, design patterns free resources,
+            <h1>Top coding tips, documentations, design patterns free resources and
               system design landscape</h1>
             <h3>Now with Dream Team joining the lineup</h3>
 
